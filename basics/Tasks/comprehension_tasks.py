@@ -110,6 +110,22 @@
 
 # print(new_dict)
 
+"Altai Task14"
+
+# dict_ = {'Timur': {'history': 90, 'math': 95, 'literature': 91},
+ 
+#   'Olga': {'history': 92, 'math': 96, 'literature': 81},
+ 
+#   'Nik': {'history': 84, 'math': 85, 'literature': 87}
+# }
+
+# dict_ = {key: in_k for key,value in dict_.items() for in_k, in_v in value.items() if in_v == max(value.values())}
+# for k,v in dict_.items():
+#     for in_k, in_v in v.items():
+#         if in_v == max(v.values()):
+#             print(k,in_v)
+# print(dict_)
+
 "===============Comprehension tasks No.15==============="
 # my_dict = {'first': {'a': 1}, 'second': {'b': 2}}
 # dict_ = {key:
