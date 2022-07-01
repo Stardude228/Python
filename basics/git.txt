@@ -6,6 +6,7 @@ git push origin master  - закидываем версию в github
 git pull origin master - стягиваем новые изменения с github
 ssh-keygen - создается папка .ssh 
 cat .ssh/id_rsa.pub
+<<<<<<< HEAD
 git clone link - copy another repository from github (if there are any)
 git log - take a look on all commits
 
@@ -15,3 +16,10 @@ git branch -D branch - delete branch
 
 git checkout branch - go over to another branch
 git checkout -b branch - create and go over to another branch simultaneously
+=======
+git clone ссылка - копируем другой репозиторий с github (если они есть)
+git log - посмотреть все коммиты
+
+git reset HEAD~ - cancels the last commit (Talk with mentors before initializing)
+git restore . - works as add, but reversely
+>>>>>>> test
