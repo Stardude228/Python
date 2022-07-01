@@ -8,3 +8,6 @@ ssh-keygen - создается папка .ssh
 cat .ssh/id_rsa.pub
 git clone ссылка - копируем другой репозиторий с github (если они есть)
 git log - посмотреть все коммиты
+
+git reset HEAD~ - cancels the last commit (Talk with mentors before initializing)
+git restore . - works as add, but reversely
