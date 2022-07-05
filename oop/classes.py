@@ -36,8 +36,8 @@ class Person:
         function that is being called when we create an object from class
         self - a link to a created object
         """
-        self.name = name # мы добавляем в обьект self новый аттрибут name
-        self.age = age # новый аттрибут age
+        self.name = name # we add into the object new variable called name
+        self.age = age # new attribute age
 
     def add_age(self):
         """
