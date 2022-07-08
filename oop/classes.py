@@ -16,9 +16,9 @@ class Person:
 person1 = Person()
 
 # person1 = Person()
-# person1.add_age() # New version
+person1.add_age() # New version
 # # Person.add_age(person1) # Old version
-# print(person1.age)
+print(person1.age)
 
 # Person.age = 17
 # print(Person.age)
