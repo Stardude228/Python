@@ -53,3 +53,30 @@ object_b.my_range() # [1,2,3,4,5,6]
 # Multilevel inheritance
 # Hierarchy inheritance
 # Hybrid inheritance
+
+"==============Problems of plural inheritance================="
+# 1. The rhombus problem - solved problem starting with 2.3 version (with a help of MRO - method resolution order)
+class A:
+    pass
+class B(A):
+    pass
+class C(A):
+    pass
+class D(B,C):
+    pass
+print(D.mro())
+# [<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>]
+
+# 2. Problem of cross-inheritance - unresolved problem
+class A:
+    pass
+class B:
+    pass
+class C(A,B):
+    pass
+class D(B, A):
+    pass
+# class E(C, D):
+#     pass
+# TypeError: Cannot create a consistent method resolution
+# order (MRO) for bases A, B
