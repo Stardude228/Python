@@ -13,41 +13,41 @@
 #     return integers
 # print(swap_big_small())
 
-import random
+# import random
 
-class Languages:
-  number_of_all_students = 0
+# class Languages:
+#   number_of_all_students = 0
   
-  def __init__(self):
-    self.number_of_all_students += 1
+#   def __init__(self):
+#     self.number_of_all_students += 1
 
-  def coding(self, language):
-    print(f'I am {language} student. I am coding now')
+#   def coding(self, language):
+#     print(f'I am {language} student. I am coding now')
 
 
-class Python(Languages):
-  number_of_students = 0
+# class Python(Languages):
+#   number_of_students = 0
   
-  def __init__(self):
-    self.number_of_students += 1
-    super().number_of_all_students + 1
+#   def __init__(self):
+#     self.number_of_students += 1
+#     super().number_of_all_students + 1
 
-  def coding(self):
-    super().coding('Python')
+#   def coding(self):
+#     super().coding('Python')
 
 
-class Javascript(Languages):
-  number_of_students = 0
+# class Javascript(Languages):
+#   number_of_students = 0
   
-  def __init__(self):
-    self.number_of_students += 1
-    super().number_of_all_students + 1
+#   def __init__(self):
+#     self.number_of_students += 1
+#     super().number_of_all_students + 1
 
-  def coding(self):
-    super().coding('Javascript')
+#   def coding(self):
+#     super().coding('Javascript')
 
-altai = Python()
-oomat = Javascript()
+# altai = Python()
+# oomat = Javascript()
 
 
 # list_ = ['oomat', 'altai']
@@ -63,6 +63,7 @@ oomat = Javascript()
 # else:
 #   print('No bueno :(')
 
-print(Python.number_of_students)
-print(Javascript.number_of_students)
-print(Languages.number_of_all_students)
+# print(Python.number_of_students)
+# print(Javascript.number_of_students)
+# print(Languages.number_of_all_students)
+

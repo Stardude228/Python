@@ -1,0 +1,119 @@
+INSERT INTO test 
+
+DMS - Database Management System
+Postgresql
+
+Setup
+# Linux
+sudo apt install postgresql
+
+# MacOS
+brew install postgresql
+
+# Check if the installation is correct
+psql --version
+
+First entry
+# Linux
+sudo -u postgres psql
+
+# MacOS
+psql postgres
+
+Initial setup
+# Creation of user
+CREATE USER <name of computer> WITH PASSWORD '<password of computer>';
+# Give the user some rights
+ALTER ROLE <name of computer> SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS;
+# Create a database for user
+CREATE DATABASE <name of computer> WITH OWNER <name of computer>;
+
+Recieving information
+\c - what database are we in and as which user
+\l - list of all databases (press q to quite)
+\du - list of all users (press q to quite)
+\q - quite psql
+\dt - displays all tables
+
+CRUD
+CREATE DATABASE test-db ; - creation of database
+CREATE DATABASE <name of database>;
+
+# Delete a database
+DROP DATABASE <name of database>;
+
+Tables
+# Creation of table
+CREATE TABLE <name of table> (
+    <name of field> <type of data> <additional parametres>,
+    <name of second field> <type of data> <additional parametres>,
+    ...
+);
+
+# Addition of column into existing table
+ALTER TABLE <name of table> ADD COLUMN <name of column> <settings of columns>;
+
+# Deletion of column from existing table
+ALTER TABLE <name of table> DROP COLUMN <name of column>;
+
+# Changing of column in existing table
+ALTER TABLE <name of table> ALTER COLUMN <new settings>;
+
+# Deletion of existing table
+DROP TABLE <name of table>;
+
+# Recieving information
+SELECT <names of required fields (or *)> FROM <name of table>;
+
+# Record of new data
+INSERT INTO <name of table>(fields that we want to write) VALUES (values of these fields);
+
+# Changing the existing data
+UPDATE <name of table> 
+SET <name of field1> = <new value>, <name of field2> = <new value> ... 
+WHERE <condition>;
+
+# Deletion of data
+DELETE FROM <name of table> WHERE <condition>;
+
+
+Types of data
+# str
+VARCHAR(5)
+'a'
+CHAR(5)
+'a     '
+# Unlimited size
+TEXT 
+
+# int
+General Specification:
+small: -32768 -- +32767 | 2 bytes
+medium: -2147483648 -- +2147483647 | 4 bytes
+big: -9223372036854775808 -- +9223372036854775807 | 8 bytes
+
+
+SMALLSERIAL, SERIAL, BIGSERIAL - automatically increasing numbers
+
+SMALLINT, INT, BIGINT - prime numbers
+
+DECIMAL, NUMERIC, REAL - float numbers
+
+# Special
+PRIMARY KEY - makes a selected field a unique key
+FOREIGN KEY - 
+
+Connections
+There are 3 types of connections:
+
+# One to one
+One author - one biography
+
+# One to many
+One account - many likes
+
+# Many to many
+Many students have many teachers and many teachers have many students
+Genres have many films and films have many genres
+
+# Syntax of connections
