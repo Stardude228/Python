@@ -1,16 +1,16 @@
 # Slash commands
-* '\c' - показывает в какой бд мы находимся через какого юзера
-* '\c name_of_db' - переключаемся к этой бд
-* '\l' - показывает все бд
-* '\dt' - показывает все таблицы в бд, к которой мы подключились
-* '\du' - показывает всех юзеров
-* '\q' - выйти из бд
+* '\c' - to which database we are connected and through which user
+* '\c name_of_db' - switching over to this database
+* '\l' - shows all databases
+* '\dt' - shows all tables in database that we are connected to
+* '\du' - shows all users
+* '\q' - quite database
 
-# Создание бд и таблиц
+# Creation of database and tables
 ```sql
 CREATE DATABASE name_of_db;
--- создает базу данных
--- (-- комментарий в sql)
+-- creates database
+-- (-- comment in sql)
 
 CREATE TABLE name_of_table (
     name_of_column1 data_type constraint,
