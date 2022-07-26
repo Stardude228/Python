@@ -200,27 +200,44 @@
 # import datetime
 
 # class CreateMixin:
-#     def create(self, todo, todo_key):
-#         for key, value in self.todos.items():
-#             if key == todo_key:
-#                 return 'Задача под таким ключём уже существует'
-#             else:
-#                 self.todos[todo_key] = todo
-#                 return 'Задача успешно создана', self.todos[todo_key]
+#     def create(self, key, todo):
+#         if list(ToDo.todos.items()) == []:
+#             ToDo.todos[key] = todo
+#             return ToDo.todos
+#         else:
+#             for inner_key, value in ToDo.todos.items():
+#                 if inner_key == key:
+#                     return 'Задача под таким ключём уже существует'
+#                 else:
+#                     ToDo.todos[key] = todo
+#                     return ToDo.todos
 
 # class DeleteMixin:
 #     def delete(self, key):
-#         temp = self.todos[key]
-#         del self.todos[key]
-#         return f'удалили {temp} задачу'
+#         if list(ToDo.todos.items()) == []:
+#             ToDo.todos[key] = todo
+#             return ToDo.todos
+#         else:
+#             for inner_key, value in ToDo.todos.items():
+#                 if inner_key != key:
+#                     pass
+#                 elif inner_key == key:
+#                     temp = ToDo.todos[key]
+#                     del ToDo.todos[key]
+#                     return temp
 
 # class UpdateMixin:
 #     def update(self, key, new_value):
-#         self.todos[key] = new_value
+#         for inner_key, value in ToDo.todos.items():
+#             if inner_key != key:
+#                 return 'Not found'
+#             elif inner_key == key:
+#                 ToDo.todos[key] = new_value
+#                 return ToDo.todos
 
 # class ReadMixin:
 #     def read(self):
-#         list_ = [(key, value) for key, value in self.todos.items()]
+#         list_ = [(key, value) for key, value in ToDo.todos.items()]
 #         return list_
 
 # class ToDo(CreateMixin, DeleteMixin, UpdateMixin, ReadMixin):
@@ -230,20 +247,130 @@
 #         today = datetime.date.today()
 #         future = datetime.date(int(deadline_list[2]), int(deadline_list[1]), int(deadline_list[0]))
 #         diff = future - today
-#         print (diff.days)
+#         return diff.days
 
 # todo = ToDo()
 # todo.set_deadline("31/12/2022")
 
-# todo.create('Take out the trash', 1)
-# print(todo.read())
-# print(todo.todos)
-# todo.update(1, 'Hang out with friends')
-# print(todo.read())
-# todo.delete(1)
-# print(todo.read())
+# task = ToDo()
+# print(task.create(1, 'Do housework'))
+# print(task.create(1, 'Do housework'))
+# print(task.create(2, 'Go for a walk'))
+# print(task.update(1, 'Do homework'))
+# print(task.delete(2))
+# print(task.read())
+# print(task.set_deadline('31/12/2021'))
 
 """
 ===============Introduction OOP tasks No.7===============
+Напишите класс Game, с помощью которого можно создать объекты-игры, у объектов должны быть атрибуты:
+type - тип игры
+name - название игры,
+extensions соответсвующий пустому списку - [].
+
+У класса должны быть методы:
+1. get_description, который принимает строку и возвращает описание к игре в виде названия игры и переданной строки:
+Minecraft это инди-игра в жанре песочницы с элементами выживания и открытым миром.
+Где Minecraft - это название игры, берется из атрибута name объекта.
+
+2. get_extensions, который возвращает все подключенные расширения в виде строки разделенной пробелами, если же список extensions пуст, возвращайте сообщение:
+Нет подключенных расширений   
+
+Также напишите миксин ExtensionMixin, чтобы к игре можно было подключать расширения.
+У миксина должно быть два метода:
+1. add_extension, принимающий строку-название и добавляющий ее в список игры, также должен возвратить сообщение:
+Добавлено новое расширение Multiverse-Core для игры Minecraft.
+где Multiverse-Core это строка - название расширения
+
+2. remove_extension, удаляющий расширение по названию, и возращающий строку в формате:
+Multiverse-Core был отключен от Minecraft. 
+Если же такого расширения нет в списке должна возвращаться строка:
+Такого расширения нет в списке.
+"""
+# class ExtensionMixin:
+#     def add_extension(self, extension):
+#         self.extensions.append(extension)
+#         return f'Добавлено новое расширение {extension} для игры {self.name}.'
+#     def remove_extension(self, extension):
+#         if extension in self.extensions:
+#             self.extensions.remove(extension)
+#             return f'{extension} был отключен от {self.name}.'
+#         else:
+#             return 'Такого расширения нет в списке.'
+
+# class Game(ExtensionMixin):
+#     def __init__(self, type, name):
+#         self.type = type
+#         self.name = name
+#         self.extensions = []
+
+#     def get_description(self, text):
+#         return f'{self.name} это {text}'
+
+#     def get_extensions(self):
+#         return self.extensions if self.extensions else 'Нет подключенных расширений'
+
+# game = Game(10, 'Minecraft')
+
+# print(game.get_description('инди-игра в жанре песочницы с элементами выживания и открытым миром.'))
+# print(game.add_extension('Multiverse-Core'))
+# print(game.get_extensions())
+# print(game.remove_extension('Multiverse-Core'))
+# print(game.get_extensions())
+
 
 """
+===============Introduction OOP tasks No.8===============
+Создайте класс WalkMixin с методом walk, который будет выводить "я могу ходить"
+
+Создайте класс FlyMixin с методом fly, который будет выводить "я могу летать"
+
+Создайте класс SwimMixin с методом swim, который будет выводить "я могу плавать"
+
+Создайте класс Human, который будет наследоваться от миксинов WalkMixin и SwimMixin
+Создайте класс Fish, который будет наследоваться от миксина SwimMixin
+Создайте класс Exocoetidae, который будет наследоваться от миксинов FlyMixin и SwimMixin
+Создайте класс Duck, который будет наследоваться от всех 3 миксинов
+Создайте обьекты от классов Human, Fish, Exocoetidae, Duck и вызовите методы, которые у них есть от миксинов
+
+"""
+# class WalkMixin:
+#     def walk(self):
+#         print("я могу ходить")
+
+# class FlyMixin:
+#     def fly(self):
+#         print("я могу летать")
+
+# class SwimMixin:
+#     def swim(self):
+#         print("я могу плавать")
+
+# class Human(WalkMixin, SwimMixin):
+#     pass
+
+# class Fish(SwimMixin):
+#     pass
+
+# class Exocoetidae(FlyMixin, SwimMixin):
+#     pass
+
+# class Duck(WalkMixin, SwimMixin, FlyMixin):
+#     pass
+
+# human = Human() 
+# fish = Fish()
+# exocoetidae = Exocoetidae()
+# duck = Duck()
+
+# human.swim()
+# human.walk()
+
+# fish.swim()
+
+# exocoetidae.swim()
+# exocoetidae.fly()
+
+# duck.swim()
+# duck.fly()
+# duck.walk()

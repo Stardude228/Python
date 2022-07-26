@@ -67,3 +67,27 @@
 # print(Javascript.number_of_students)
 # print(Languages.number_of_all_students)
 
+def chain(init_val, functions):
+    if 'add10' in functions and 'mul30' in functions:
+        @property
+        def add10(init_val):
+            return init_val + 10
+        @property
+        def mul30(init_val):
+            return init_val * 30
+        add10()
+        mul30()
+    elif 'mul30' in functions:
+        @property
+        def mul30(init_val):
+            return init_val * 30
+        mul30()
+    elif 'add10' in functions:
+        @property
+        def add10(init_val):
+            return init_val + 10
+        add10()
+    else:
+        return init_val
+
+chain(50, [add10, mul30])
